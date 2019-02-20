@@ -1,25 +1,37 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <Board>
+      test1
+      </Board>
+    );
+  }
+}
+
+class Board extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      squares: Array(8).fill(null).map(()=>Array(8).fill(null)),
+    };
+  }
+
+  render() {
+    return this.state.squares.map(row => {
+      return <div class="row">
+        {row.map(square => { return <Square/> })}
+      </div>
+    });
+  }
+}
+
+class Square extends React.Component {
+  render() {
+    return (
+      <div className="square">
       </div>
     );
   }
